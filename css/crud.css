@@ -1,0 +1,141 @@
+body {
+  background-color: #222;
+}
+
+header {
+  z-index: 997;
+  position: sticky;
+  top: 0;
+  background-color: var(--main-color);
+  color: var(--second-color);
+}
+
+header button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.contenedor {
+  position: relative;
+  margin: auto;
+  display: flex;
+  padding: 10px;
+}
+
+.edit {
+  padding: 8px;
+  position: sticky;
+  top: 1em;
+  min-width: 180px;
+  max-width: 300px;
+  height: 100%;
+}
+
+.none {
+  display: none;
+  visibility: hidden;
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.limitado {
+  width: 180px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-body,
+.card-footer {
+  padding: 5px;
+}
+
+.img-edit {
+  width: 100%;
+  height: 282px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.cards {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 180px);
+}
+.input-group-text {
+  font-size: 8px;
+}
+
+.tarjeta {
+  background: #f2f2f2;
+  border-radius: 4px;
+  margin: 5px;
+  height: 285px;
+}
+
+.tarjeta img {
+  background: #f2f2f2;
+  padding: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
+/**************FILTRO BUSCAR*******************/
+.filtra {
+  opacity: 0;
+  visibility: hidden;
+  order: 1;
+}
+
+/********************TARJETA PARA EDITAR/AGREGAR****************************/
+
+.card-img {
+  position: relative;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+}
+
+#img-upload {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+}
+
+label[for="img-upload"] {
+  display: flex;
+  position: absolute;
+  width: 15%;
+  height: 15%;
+  z-index: 999;
+  bottom: 5%;
+  left: 5%;
+  border-radius: 50%;
+  padding: 5px;
+  color: #222;
+  transition: all 0.5s;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+label img {
+  opacity: 0.7;
+}
