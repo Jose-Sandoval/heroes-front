@@ -2,6 +2,7 @@ const d= document, $cards = d.querySelector(".cards"), $template = d.getElementB
      $fragmente = d.createDocumentFragment(), $edit = d.querySelector(".edit"), $buscador = d.querySelector(".buscar"),
      $imgView = d.querySelector(".img"), $imgUploadInput = d.querySelector("#img-upload"),
      $formHeroe = d.querySelector("#form-heroe"), CLOUDINARY_UPLOAD_PRESET = "cu5esrwp",
+     $loader = d.querySelector(".loader"),
      CLOUDINARY_URL ="https://api.cloudinary.com/v1_1/srquad/image/upload",
      urlImgs = "https://res.cloudinary.com/srquad/image/upload/v1606613101/";
 
@@ -178,6 +179,7 @@ d.addEventListener("DOMContentLoaded", (e) =>{
      }               
 })
 
+//metodo para subir una imagen a 
 async function  uploadImg (file){         
      //console.log("subiendo img");          
      const formData = new FormData();
@@ -193,8 +195,7 @@ async function  uploadImg (file){
 }
     
 
-$formHeroe.addEventListener("submit", async (e)=>{
-    
+$formHeroe.addEventListener("submit", async (e)=>{    
      const imgFormats = ["image/jpg", "image/png", "image/gif", "image/jpeg"];    
      e.preventDefault();
      //console.log(e);
@@ -207,9 +208,10 @@ $formHeroe.addEventListener("submit", async (e)=>{
                "img" : ""
            };
      //console.log(file);
-     if (imgFormats.includes(file.type)) {
+     $loader.classList.remove("none");
+     if (imgFormats.includes(file.type)) {          
           const res = await uploadImg(file);
-          data.img = res;
+          data.img = res;          
           //console.log(res);
      }else {
           console.warn("formato no valido");
@@ -224,8 +226,10 @@ $formHeroe.addEventListener("submit", async (e)=>{
           data.id_heroe = id;
           update(id, data);
      }
+     $loader.classList.add("none");
 });
 
+//metodo para seleccionar una imagen
 $imgUploadInput.addEventListener("change", async (e)=>{
      const imgFormats = ["image/jpg", "image/png", "image/gif", "image/jpeg"];
      if (e.target.files[0] ){
